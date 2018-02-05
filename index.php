@@ -54,6 +54,7 @@ if(isset($new)) echo '<span style="color: red;">*</span>';
 <br><br>
 <a href=show_users.php>Users</a> (<?php echo $users_count; ?>)<br><br>
 <a href=user_logs.php>User logs</a> (<?php echo $user_logs_count; ?>)<br><br>
+<a href=change_password.php>Change password</a><br><br>
 <a href=session.php>View session</a>
 <?php require ROOT.'include/page_center_end.php'; ?>
 </body>

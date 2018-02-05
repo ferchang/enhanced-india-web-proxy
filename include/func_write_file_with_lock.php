@@ -3,7 +3,7 @@ if(ini_get('register_globals')) exit("<center><h3>Error: Turn that damned regist
 if(!defined('CAN_INCLUDE')) exit("<center><h3>Error: Direct access denied!</h3></center>");
 
 function write_file_with_lock($file, $contents) {
-	$fp=fopen($file, 'w');
+	$fp=fopen($file, 'c');
 	flock($fp, LOCK_EX);
 	ftruncate($fp, 0);
 	fseek($fp, 0);

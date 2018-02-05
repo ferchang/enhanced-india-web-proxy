@@ -13,6 +13,7 @@ require ROOT.'include/log_user.php';
 if(file_exists($user_file)) {
 	$fp=fopen($user_file, 'r+');
 	flock($fp, LOCK_EX);
+	//fseek($fp, 0);
 	list($start, $up, $down, $t)=explode($quota_file_sep, fread($fp, 999999));
 	if($duration and $req_time-$start>=$duration) {
 		$start=$req_time;
@@ -61,11 +62,10 @@ if($fsok!==false) {
 		$out_size+=strlen($line);
 		my_echo($line);
 	}
-	
+	fclose($fsok);
 }
 else my_echo('Target Host not Found/Down');
 
-fclose($fsok);
 @ob_flush();
 flush();
 	
