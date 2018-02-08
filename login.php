@@ -10,7 +10,7 @@ if(!empty($_POST)) require ROOT.'include/prevent_xsrf.php';
 
 if(isset($_POST['password'])) {
 	require ROOT.'include/class_bcrypt.php';	
-	$bcrypt=new Bcrypt(12);
+	$bcrypt=new Bcrypt($admin_password_hash_rounds);
 	$password_file=ROOT.'writable/password.php';
 	$lock_file=ROOT.'writable/lock';
 	if(file_exists($password_file)) {

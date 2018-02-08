@@ -12,6 +12,8 @@ require ROOT.'include/func_random.php';
 
 $post_field_sep=':::';
 
+$admin_password_hash_rounds=12;
+
 //-----------------------------
 
 if(!isset($_SESSION['antixsrf_token4post'])) $_SESSION['antixsrf_token4post']=random_string(22);

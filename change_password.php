@@ -12,7 +12,7 @@ if(!empty($_POST)) require ROOT.'include/prevent_xsrf.php';
 
 if(isset($_POST['password'])) {
 	require ROOT.'include/class_bcrypt.php';	
-	$bcrypt=new Bcrypt(12);
+	$bcrypt=new Bcrypt($admin_password_hash_rounds);
 	require ROOT.'writable/password.php';
 	if($bcrypt->verify($_POST['password'], $hash)) {
 		$hash=$bcrypt->hash($_POST['new_pass']);
